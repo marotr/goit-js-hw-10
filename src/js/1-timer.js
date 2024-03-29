@@ -57,7 +57,7 @@ function checkDate(selectedDate) {
     }
 
    
-    if (selectedDate.getTime() < Date.now) {
+    if (selectedDate.getTime() < Date.now()) {
         iziToast.show({
             message: "Please choose a date in the future",
             messageColor: ' #fff',
@@ -65,6 +65,8 @@ function checkDate(selectedDate) {
             position: 'topCenter',
             messageSize: '16px',
             messageLineHeight: '150%',
+            iconColor:'white'
+           
         });
         button.disabled = true;
     } else {
