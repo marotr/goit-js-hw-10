@@ -3,10 +3,7 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 const submit = document.querySelector('button');
 const fulfilled = document.querySelector('input[value="fulfilled"]');
-const rejected = document.querySelector('input[value="rejected"]');
-submit.addEventListener('click', handleSubmit);
-fulfilled.addEventListener('click', handleFulfilled);
-rejected.addEventListener('click', handleRejected);
+submit?.addEventListener('click', handleSubmit);
 const input = document.querySelector('input[name="delay"')
 
 
@@ -32,12 +29,6 @@ function handleSubmit(event) {
             showNotification(`❌ Rejected promise in ${delay}ms`, '#ef4040');
         });
 
-}
-function handleFulfilled() {
-    rejected.checked = false;
-}
-function handleRejected() {
-    fulfilled.checked = false;
 }
 
 function showNotification(message, backgroundColor) {

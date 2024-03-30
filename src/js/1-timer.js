@@ -9,9 +9,9 @@ const daysElement =document.querySelector('[data-days]');
 const hoursElement =document.querySelector('[data-hours]');
 const minutesElement =document.querySelector('[data-minutes]');
 const secondsElement =document.querySelector('[data-seconds]');
+button.disabled = true;
 
-
-button.addEventListener('click', () => {
+button?.addEventListener('click', () => {
     const currentDate = Date.now();
     const selectedDate = userSelectedDate.getTime();
     const ms = selectedDate - currentDate;
@@ -41,6 +41,7 @@ function addLeadingZero(value) {
 }
 
 function startCountdown(ms) {
+    
     const countDown = setInterval(() => {
         const { days, hours, minutes, seconds } = convertMs(ms);
         addLeadingZero({ days, hours, minutes, seconds });
@@ -92,6 +93,3 @@ flatpickr("#datetime-picker", {
 
 
 
-console.log(convertMs(2000));
-console.log(convertMs(140000));
-console.log(convertMs(24140000));
