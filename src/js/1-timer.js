@@ -4,19 +4,30 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 let userSelectedDate;
-const button = document.querySelector('button');
+const btn = document.querySelector('button');
 const daysElement =document.querySelector('[data-days]');
 const hoursElement =document.querySelector('[data-hours]');
 const minutesElement =document.querySelector('[data-minutes]');
 const secondsElement =document.querySelector('[data-seconds]');
-button.disabled = true;
 
-button?.addEventListener('click', () => {
+
+    
+
+
+btn?.addEventListener('click', () => {
     const currentDate = Date.now();
     const selectedDate = userSelectedDate.getTime();
     const ms = selectedDate - currentDate;
     startCountdown(ms);
 });
+
+try {
+    btn.disabled = true; 
+} catch(error) {
+   console.log('Button is not found');
+};
+
+ 
 
 function convertMs(ms) {
     const second = 1000;
@@ -69,9 +80,9 @@ function checkDate(selectedDate) {
             iconColor:'white'
            
         });
-        button.disabled = true;
+        btn.disabled = true;
     } else {
-        button.disabled = false;
+        btn.disabled = false;
     }
 }
 
